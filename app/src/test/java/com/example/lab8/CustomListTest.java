@@ -14,21 +14,15 @@ import java.util.ArrayList;
 
 public class CustomListTest {
 
-    private CustomList list;
+    private CustomList list = new CustomList(null, new ArrayList<>());;
 
     private City mockCity() {
         return new City("Edmonton", "Alberta");
 
     }
 
-    public CustomList MockCityList() {
-        list = new CustomList(null, new ArrayList<>());
-        return list;
-    }
-
     @Test
     void addCityTest() {
-        list = MockCityList();
         int listSize = list.getCount();
         list.addCity(new City("Estevan", "SK"));
         assertEquals(list.getCount(), listSize + 1);
@@ -37,18 +31,16 @@ public class CustomListTest {
 
     @Test
     void hasCityTest() {
-        CustomList cityList = MockCityList();
         City mockCity = mockCity();
-        cityList.add(mockCity);
-        assertTrue(cityList.hasCity(mockCity));
+        list.addCity(mockCity);
+        assertTrue(list.hasCity(mockCity));
         City city = new City("Calgary", "Alberta");
-        cityList.add(city);
-        assertTrue(cityList.hasCity(city));
+        list.addCity(city);
+        assertTrue(list.hasCity(city));
         City noCity = new City("RedDeer", "Alberta");
-        assertFalse(cityList.hasCity(noCity));
+        assertFalse(list.hasCity(noCity));
     }
 
-    
 
 
 }
