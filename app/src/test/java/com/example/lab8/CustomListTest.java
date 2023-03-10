@@ -45,10 +45,10 @@ public class CustomListTest {
     void deleteTest() {
 
         City mockCity = mockCity();
-        list.add(mockCity);
+        list.addCity(mockCity);
         assertTrue(list.hasCity(mockCity));
         City delCity = new City("RedDeer", "Alberta");
-        list.add(delCity);
+        list.addCity(delCity);
         assertTrue(list.hasCity(delCity));
         list.delete(delCity);
         assertFalse(list.hasCity(delCity));
